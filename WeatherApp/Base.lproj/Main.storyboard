@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rGq-9s-enN">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--WeatherApp-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bCl-l4-cIX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="707"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="D4p-Ol-2oU" appends="YES" id="b2Z-F6-jT0"/>
+                                </connections>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Weather:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaG-I1-NHk">
+                                <rect key="frame" x="16" y="715" width="359" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="Jdo-Ik-suj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vaG-I1-NHk" firstAttribute="top" secondItem="bCl-l4-cIX" secondAttribute="bottom" constant="8" symbolic="YES" id="EeZ-N4-CPw"/>
+                            <constraint firstItem="bCl-l4-cIX" firstAttribute="trailing" secondItem="vaG-I1-NHk" secondAttribute="trailing" id="KTk-Y8-cZE"/>
+                            <constraint firstItem="bCl-l4-cIX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eVI-Pw-czg"/>
+                            <constraint firstItem="bCl-l4-cIX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ldX-eD-pQn"/>
+                            <constraint firstItem="vaG-I1-NHk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rmW-oV-y7T"/>
+                            <constraint firstItem="vaG-I1-NHk" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="t2A-Gf-SMq"/>
+                            <constraint firstAttribute="trailing" secondItem="bCl-l4-cIX" secondAttribute="trailing" id="w22-9N-e5g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="WeatherApp" id="4lS-B7-WZl"/>
+                    <connections>
+                        <outlet property="currentWeatherLabel" destination="vaG-I1-NHk" id="cwn-Ns-0Xk"/>
+                        <outlet property="mapView" destination="bCl-l4-cIX" id="tXZ-wS-hdd"/>
+                        <segue destination="6an-Q8-wMI" kind="show" identifier="segue" id="Jld-jF-hgP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="D4p-Ol-2oU">
+                    <connections>
+                        <action selector="mapDoubleTapped:" destination="BYZ-38-t0r" id="bWx-4T-eaK"/>
+                        <outlet property="delegate" destination="bCl-l4-cIX" id="Oj0-GI-cvk"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="479.19999999999999" y="133.74384236453201"/>
+        </scene>
+        <!--Selected Area View Controller-->
+        <scene sceneID="Hd4-JN-NTN">
+            <objects>
+                <viewController id="6an-Q8-wMI" customClass="SelectedAreaViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ynm-kc-Z2e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weather at Selected Area:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzU-qz-Tgf">
+                                <rect key="frame" x="26" y="133" width="323" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100 C" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fd9-d4-VHi">
+                                <rect key="frame" x="26" y="241" width="306" height="223"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZTd-1e-DKQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="temperatureLabel" destination="Fd9-d4-VHi" id="7js-fg-7s9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1e-c0-Ibt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1418.4000000000001" y="133.74384236453201"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ygK-1z-yzh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rGq-9s-enN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xim-PR-nAk">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7Q3-cE-jgI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vQC-aN-coQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-350" y="134"/>
+        </scene>
+    </scenes>
+</document>
